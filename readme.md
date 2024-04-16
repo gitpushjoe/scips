@@ -35,17 +35,17 @@ There are multiple C -> MIPS compilers out there, but I'll be using the Linux MI
 
 Then, using `"main.c"` as a stand-in for the file you wish to compile, and `"main"` as a stand-in for the output executable filename, run the following command:
 
-`mips-linux-gnu-gcc -march=mips1 -mfp32 -mabi=32 -mno-abicalls -mno-explicit-relocs -nostdlib main.c -o main`
+` $ mips-linux-gnu-gcc -march=mips1 -mfp32 -mabi=32 -mno-abicalls -mno-explicit-relocs -nostdlib main.c -o main`
 
 #### Converting
 
 In order to import the executable into scips, it first needs to be converted into a CSV. The `mips_to_csv.c` file facilitates this, but first needs to be compiled (no xz shenanigans here):
 
-`gcc --std=c11 mips_to_csv.c -o mips_to_csv.o`
+` $ gcc --std=c11 mips_to_csv.c -o mips_to_csv.o`
 
 Then, call `mips_to_csv.o` with the input executable as the first argument and the output filename as the second argument:
 
-`./mips_to_csv.o main main.csv`
+` $ ./mips_to_csv.o main main.csv`
 
 #### Importing 
 
@@ -61,7 +61,7 @@ It also implements a few custom syscalls:
 | `cls` | 0 | | clears `stdout` | 
 | `putsym` | 3 | `$a0` = idx of symbol to print | outputs the symbol to `stdout`
 
-This is the list of supported symbols, where setting `$a0` to `0` will output a red heart, and setting `$a0` to `44` will output a brown square: ????????????????????????????????????????????????????????????????????????????????????
+This is the list of supported symbols, where setting `$a0` to `0` will output a red heart, and setting `$a0` to `44` will output a brown square: 💖🔴🔺🔻🟥💙🔵🔹🔷🟦💛🟡🎇🎁🟨💚🟢🍏🥦🟩🧡🟠🔸🔶🟧💜🟣🍇🔮🟪🤍⚪❔❕⬜🖤⚫🏴💀⬛🤎🟤💩💼🟫
 
 
 
