@@ -23,8 +23,8 @@ int __start() {
     char buf[128];
     gets(buf, 128);
     int n = atoi(buf);
-	printf("fib(%d) = %d\n", n, fib(n));
-	return 0;
+    printf("fib(%d) = %d\n", n, fib(n));
+    return 0;
 }
 ```
 
